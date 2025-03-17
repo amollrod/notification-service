@@ -1,4 +1,4 @@
-package com.tfg.notification.dto;
+package com.tfg.notification.clients.blockchain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PackageKafkaHistoryEvent {
+public class UpdatePackageStatusRequest {
     private String status;
     private String location;
-    private long timestamp;
 }
-

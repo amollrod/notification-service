@@ -1,4 +1,4 @@
-package com.tfg.notification.dto;
+package com.tfg.notification.kafka.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,12 +11,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class PackageKafkaEvent {
+public class PackageEvent {
     private String id;
     private String origin;
     private String destination;
     private String status;
     private String lastLocation;
     private long lastTimestamp;
-    private List<PackageKafkaHistoryEvent> history;
+    private List<PackageHistoryEvent> history;
 }

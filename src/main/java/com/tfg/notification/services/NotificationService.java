@@ -1,30 +1,27 @@
 package com.tfg.notification.services;
 
-import com.tfg.notification.dto.PackageKafkaEvent;
-import com.tfg.notification.kafka.KafkaSender;
+import com.tfg.notification.clients.blockchain.BlockchainClient;
+import com.tfg.notification.clients.blockchain.mappers.BlockchainPackageMapper;
+import com.tfg.notification.kafka.dto.PackageEvent;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+@Log4j2
 @Service
 public class NotificationService {
-    private final KafkaSender sender;
+    private final BlockchainClient client;
 
-    public NotificationService(KafkaSender sender) {
-        this.sender = sender;
+    public NotificationService(BlockchainClient client) {
+        this.client = client;
     }
 
-    public void processPackageCreated(PackageKafkaEvent event) {
-        String message = String.format(
-                "Paquete Creado: %s (Origen: %s, Destino: %s) - Estado: %s",
-                event.getId(), event.getOrigin(), event.getDestination(), event.getStatus()
-        );
-        sender.sendNotification(message);
+    public void handlePackageCreated(PackageEvent event) {
+        log.info("Package with id {} created. Its origin is {} and its destination is {}", event.getId(), event.getOrigin(), event.getDestination());
+        client.createPackage(BlockchainPackageMapper.toCreatePackageRequest(event));
     }
 
-    public void processPackageUpdated(PackageKafkaEvent event) {
-        String message = String.format(
-                "Paquete %s actualizado - Estado: %s - Ultima ubicacion: %s",
-                event.getId(), event.getStatus(), event.getLastLocation()
-        );
-        sender.sendNotification(message);
+    public void handlePackageUpdated(PackageEvent event) {
+        log.info("Package with id {} updated. Its status is {} and its last location is {}", event.getId(), event.getStatus(), event.getLastLocation());
+        client.updatePackageStatus(event.getId(), BlockchainPackageMapper.toUpdatePackageStatusRequest(event));
     }
 }
