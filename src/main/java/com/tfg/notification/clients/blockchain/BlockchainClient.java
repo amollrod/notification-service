@@ -22,7 +22,7 @@ public class BlockchainClient {
                 .subscribe();
     }
 
-    public void updatePackageStatus(String packageId, UpdatePackageStatusRequest dto) {
+    public void updatePackageStatus(long packageId, UpdatePackageStatusRequest dto) {
         webClient.put()
                 .uri("/package/{id}/status", packageId)
                 .bodyValue(dto)
