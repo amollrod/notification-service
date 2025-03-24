@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreatePackageRequest {
-    private long id;
+    private String id;
     private String origin;
     private String destination;
 }

@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 public class PackageEvent {
-    private long id;
+    private String id;
     private String origin;
     private String destination;
     private String status;
