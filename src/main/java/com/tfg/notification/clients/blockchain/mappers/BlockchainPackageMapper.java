@@ -2,7 +2,7 @@ package com.tfg.notification.clients.blockchain.mappers;
 
 import com.tfg.notification.clients.blockchain.dto.CreatePackageRequest;
 import com.tfg.notification.clients.blockchain.dto.UpdatePackageStatusRequest;
-import com.tfg.notification.kafka.dto.PackageEvent;
+import com.tfg.notification.event.PackageEvent;
 
 public class BlockchainPackageMapper {
     public static CreatePackageRequest toCreatePackageRequest(PackageEvent event) {

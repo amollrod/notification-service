@@ -2,7 +2,7 @@ package com.tfg.notification.services;
 
 import com.tfg.notification.clients.blockchain.BlockchainClient;
 import com.tfg.notification.clients.blockchain.mappers.BlockchainPackageMapper;
-import com.tfg.notification.kafka.dto.PackageEvent;
+import com.tfg.notification.event.PackageEvent;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 

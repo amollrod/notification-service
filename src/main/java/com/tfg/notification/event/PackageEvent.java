@@ -1,4 +1,4 @@
-package com.tfg.notification.kafka.dto;
+package com.tfg.notification.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,6 +1,6 @@
 package com.tfg.notification.kafka;
 
-import com.tfg.notification.kafka.dto.PackageEvent;
+import com.tfg.notification.event.PackageEvent;
 import com.tfg.notification.services.NotificationService;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
