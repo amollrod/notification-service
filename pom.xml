@@ -111,7 +111,6 @@
 					</includes>
 					<excludes>
 						<exclude>**/*IT.java</exclude>
-						<exclude>**/ArchitectureTest.java</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
