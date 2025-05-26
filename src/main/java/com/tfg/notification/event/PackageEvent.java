@@ -2,21 +2,17 @@ package com.tfg.notification.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
 public class PackageEvent {
     private String id;
     private String origin;
     private String destination;
     private String status;
     private String lastLocation;
-    private long lastTimestamp;
-    private List<PackageHistoryEvent> history;
 }
