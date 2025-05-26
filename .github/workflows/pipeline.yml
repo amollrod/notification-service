@@ -1,0 +1,28 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+
+  unit-tests:
+    needs: build
+    uses: ./.github/workflows/unit-tests.yml
+
+  integration-tests:
+    needs: build
+    uses: ./.github/workflows/integration-tests.yml
+
+  docker-publish:
+    needs: [unit-tests, integration-tests]
+    uses: ./.github/workflows/docker-publish.yml
+    permissions:
+      contents: read
+      packages: write
